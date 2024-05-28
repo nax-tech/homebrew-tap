@@ -28,4 +28,13 @@ class Nax < Formula
   test do
     system "#{bin}/nax --version"
   end
+
+  def caveats
+    <<~EOS
+
+      If you previously installed nax-cli via the cargo command, you may need to uninstall it with `cargo uninstall nax`
+      to ensure that the nax binary you installed with Homebrew is used instead.
+
+    EOS
+  end
 end
