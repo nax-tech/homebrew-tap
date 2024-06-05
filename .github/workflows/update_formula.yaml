@@ -15,4 +15,4 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           ERB_ARGS=$(echo $PAYLOAD | jq -rj 'keys[] as $k | "\($k)=\(.[$k]) "')
-          erb $ERB_ARGS template/${{ github.event.client_payload.name }}.erb >> Formula/${{ github.event.client_payload.name }}.rb
+          erb $ERB_ARGS templates/${{ github.event.client_payload.name }}.erb >> Formula/${{ github.event.client_payload.name }}.rb
