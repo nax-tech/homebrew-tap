@@ -16,3 +16,6 @@ jobs:
       - run: |
           ERB_ARGS=$(echo $PAYLOAD | jq -rj 'keys[] as $k | "\($k)=\(.[$k]) "')
           erb $ERB_ARGS templates/${{ github.event.client_payload.name }}.erb >> Formula/${{ github.event.client_payload.name }}.rb
+          git add -A
+          git commit -m "Update ${{ github.event.client_payload.name }} to ${{ github.event.client_payload.version }}"
+          git push
