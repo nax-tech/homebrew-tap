@@ -1,0 +1,46 @@
+class Nax < Formula
+  desc "Command-line interface for the NAX platform"
+  homepage "naxgrp.com"
+  version "<%= version %>"
+
+  on_linux do
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://naxpublicstuffs.blob.core.windows.net/binaries/nax-<%= version %>/nax-<%= version %>-linux-x86_64.zip"
+      sha256 "<%= linux_x64_sha256 %>"
+    end
+  end
+  
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://naxpublicstuffs.blob.core.windows.net/binaries/nax-<%= version %>/nax-<%= version %>-darwin-arm64.zip"
+      sha256 "<%= darwin_arm64_sha256 %>"
+    else
+      url "https://naxpublicstuffs.blob.core.windows.net/binaries/nax-<%= version %>/nax-<%= version %>-darwin-x86_64.zip"
+      sha256 "<%= darwin_x64_sha256 %>"
+    end
+  end
+
+  # depends_on "awscli"
+  # depends_on "azure-cli"
+  # depends_on "git"
+
+  livecheck do
+    url "https://naxpublicstuffs.blob.core.windows.net/binaries?comp=list&restype=container"
+    regex %r{<Name>nax-(\d+\.\d+\.\d+?)/}i
+  end
+
+  def install
+    bin.install "nax"
+  end
+
+  test do
+    system "#{bin}/nax --version"
+  end
+
+  def caveats
+    <<~EOS
+      If you previously installed nax-cli via the cargo command, you may need to uninstall it with `cargo uninstall nax`
+      to ensure that the nax binary you installed with Homebrew is used instead.
+    EOS
+  end
+end
