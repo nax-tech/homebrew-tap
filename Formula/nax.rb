@@ -1,22 +1,22 @@
 class Nax < Formula
   desc "Command-line interface for the NAX platform"
   homepage "naxgrp.com"
-  version "0.3.0"
+  version "0.3.1"
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://naxpublicstuffs.blob.core.windows.net/binaries/nax-0.3.0/nax-0.3.0-linux-x86_64.zip"
-      sha256 "c3e46fe360090fae063a908698a833ad15dfd8382e525539f2baec4f71b2a572"
+      url "https://naxpublicstuffs.blob.core.windows.net/binaries/nax-0.3.1/nax-0.3.1-linux-x86_64.zip"
+      sha256 "c0c4e1388f5ac357dfed787fd4c425e1abecdcf600443c871d9f34bec19e89c0"
     end
   end
   
   on_macos do
     if Hardware::CPU.arm?
-      url "https://naxpublicstuffs.blob.core.windows.net/binaries/nax-0.3.0/nax-0.3.0-darwin-arm64.zip"
-      sha256 "c013cc42602d5a1d1c2112b411575fabf3c97c054b347058c090ff39f942da04"
+      url "https://naxpublicstuffs.blob.core.windows.net/binaries/nax-0.3.1/nax-0.3.1-darwin-arm64.zip"
+      sha256 "c8052578f6597b0d763bbc640555aaef916942fce8cf1fbff0c58c72a9235ce9"
     else
-      url "https://naxpublicstuffs.blob.core.windows.net/binaries/nax-0.3.0/nax-0.3.0-darwin-x86_64.zip"
-      sha256 "31f7bf324a119367499bf5c592c90ddfa51a9df31057689b9a29663ec38f036c"
+      url "https://naxpublicstuffs.blob.core.windows.net/binaries/nax-0.3.1/nax-0.3.1-darwin-x86_64.zip"
+      sha256 "c6c28418fd3fb5badb23889d4836fb2de8fa1143ce298fe473427216c28135a9"
     end
   end
 
